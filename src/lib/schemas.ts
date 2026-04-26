@@ -10,6 +10,7 @@ export const contactSchema = z.object({
   message: z.string().min(10, {
     message: "El mensaje debe tener al menos 10 caracteres.",
   }),
+  honeypot: z.string().optional(),
 });
 
 export type ContactFormData = z.infer<typeof contactSchema>;
