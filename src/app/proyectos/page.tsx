@@ -24,7 +24,7 @@ export default async function ProyectosPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {projects.map((project) => (
           <Link key={project.slug} href={`/proyectos/${project.slug}`} className="group">
-            <Card className="h-full overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border-muted bg-card/50 backdrop-blur-sm">
+            <Card className="h-full overflow-hidden transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-1 hover:border-primary/30 border-muted bg-card/50 backdrop-blur-sm">
               {project.image && (
                 <div className="aspect-video w-full overflow-hidden">
                   <img 

@@ -1,37 +1,38 @@
 "use client";
 
-import { useState, useTransition } from "react";
+import { useActionState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { sendEmail } from "@/actions/sendEmail";
+import { sendEmail, type FormState } from "@/actions/sendEmail";
+
+const initialState: FormState = {
+  success: false,
+};
 
 export function ContactForm() {
-  const [isPending, startTransition] = useTransition();
-  const [state, setState] = useState<{
-    success?: boolean;
-    message?: string;
-    error?: string;
-  }>({});
+  const [state, formAction, isPending] = useActionState(sendEmail, initialState);
+  const formRef = useRef<HTMLFormElement>(null);
 
-  const handleSubmit = async (formData: FormData) => {
-    setState({}); // Limpiar estados previos
-    
-    startTransition(async () => {
-      const result = await sendEmail(formData);
-      
-      if (result.success) {
-        setState({ success: true, message: result.message });
-        // Opcional: resetear el formulario si es necesario
-        // Pero FormData se maneja automáticamente en la mayoría de los casos si usamos action
-      } else {
-        setState({ error: result.error });
-      }
-    });
-  };
+  // Limpiar el formulario cuando se envía con éxito
+  useEffect(() => {
+    if (state?.success) {
+      formRef.current?.reset();
+    }
+  }, [state?.success]);
 
   return (
-    <form action={handleSubmit} className="space-y-5">
+    <form ref={formRef} action={formAction} className="space-y-5">
+      {/* Honeypot field - Oculto para humanos, atractivo para bots */}
+      <div style={{ display: "none" }} aria-hidden="true">
+        <input 
+          type="text" 
+          name="honeypot" 
+          tabIndex={-1} 
+          autoComplete="off" 
+        />
+      </div>
+
       <div className="space-y-2">
         <label htmlFor="name" className="text-sm font-medium">
           Nombre Completo
@@ -42,6 +43,7 @@ export function ContactForm() {
           placeholder="Ej. John Doe" 
           required 
           minLength={2}
+          disabled={isPending}
         />
       </div>
 
@@ -55,6 +57,7 @@ export function ContactForm() {
           type="email" 
           placeholder="tu@email.com" 
           required 
+          disabled={isPending}
         />
       </div>
 
@@ -69,6 +72,7 @@ export function ContactForm() {
           className="min-h-[120px] resize-y"
           required
           minLength={10}
+          disabled={isPending}
         />
       </div>
 
@@ -80,14 +84,14 @@ export function ContactForm() {
         {isPending ? "Enviando..." : "Enviar Mensaje"}
       </Button>
 
-      {state.success && (
-        <p className="text-sm font-medium text-green-600 mt-2">
-          {state.message}
+      {state?.success && !isPending && (
+        <p className="text-sm font-medium text-green-600 mt-2 animate-in fade-in slide-in-from-top-1">
+          ¡Mensaje enviado con éxito! Me pondré en contacto contigo pronto.
         </p>
       )}
 
-      {state.error && (
-        <p className="text-sm font-medium text-red-600 mt-2">
+      {state?.error && !isPending && (
+        <p className="text-sm font-medium text-red-600 mt-2 animate-in fade-in slide-in-from-top-1">
           {state.error}
         </p>
       )}

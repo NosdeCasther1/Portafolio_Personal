@@ -43,7 +43,7 @@ export default function HabilidadesPage() {
           {skills.map((item, index) => (
             <Card 
               key={item.category} 
-              className="group border-border/40 bg-card/50 backdrop-blur-sm transition-all duration-300 hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-1 hover:border-primary/20"
+              className="group border-border/40 bg-card/50 backdrop-blur-sm transition-all duration-300 ease-in-out hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-1 hover:border-primary/30"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <CardHeader>

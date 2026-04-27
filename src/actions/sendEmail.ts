@@ -5,43 +5,57 @@ import { contactSchema } from "@/lib/schemas";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-export async function sendEmail(formData: FormData) {
-  const name = formData.get("name");
-  const email = formData.get("email");
-  const message = formData.get("message");
+export type FormState = {
+  success: boolean;
+  error?: string;
+};
 
-  // Validación con Zod
-  const validatedFields = contactSchema.safeParse({
-    name,
-    email,
-    message,
-  });
+export async function sendEmail(prevState: FormState, formData: FormData): Promise<FormState> {
+  // Artificial delay for UI testing
+  await new Promise((resolve) => setTimeout(resolve, 1000));
+
+  const rawData = {
+    name: formData.get("name"),
+    email: formData.get("email"),
+    message: formData.get("message"),
+    honeypot: formData.get("honeypot"),
+  };
+
+  // Honeypot check
+  if (rawData.honeypot && rawData.honeypot !== "") {
+    console.warn("Honeypot filled, ignoring request.");
+    return { success: true }; // Treat as success to the bot
+  }
+
+  // Zod Validation
+  const validatedFields = contactSchema.safeParse(rawData);
 
   if (!validatedFields.success) {
     return {
+      success: false,
       error: "Datos del formulario inválidos. Por favor, revisa los campos.",
     };
   }
 
-  const { name: validatedName, email: validatedEmail, message: validatedMessage } = validatedFields.data;
+  const { name, email, message } = validatedFields.data;
 
   try {
-    const { data, error } = await resend.emails.send({
+    const { error } = await resend.emails.send({
       from: "Portfolio <onboarding@resend.dev>",
-      to: ["delivered@resend.dev"], // Reemplazar con tu dirección de correo para pruebas
-      subject: `Nuevo mensaje de contacto de ${validatedName}`,
-      replyTo: validatedEmail,
-      text: `Nombre: ${validatedName}\nEmail: ${validatedEmail}\n\nMensaje:\n${validatedMessage}`,
+      to: ["nosdecasther@gmail.com"], // Sustituir por el correo real en producción
+      subject: `Nuevo mensaje de ${name}`,
+      replyTo: email,
+      text: `Nombre: ${name}\nEmail: ${email}\n\nMensaje:\n${message}`,
     });
 
     if (error) {
       console.error("Resend Error:", error);
-      return { error: "Hubo un error al enviar el correo. Inténtalo de nuevo más tarde." };
+      return { success: false, error: "Hubo un error al enviar el correo. Inténtalo de nuevo." };
     }
 
-    return { success: true, message: "¡Mensaje enviado con éxito! Me pondré en contacto contigo pronto." };
+    return { success: true };
   } catch (err) {
-    console.error("Server Action Error:", err);
-    return { error: "Ocurrió un error inesperado. Por favor, inténtalo de nuevo." };
+    console.error("Unexpected Error:", err);
+    return { success: false, error: "Ocurrió un error inesperado." };
   }
 }
