@@ -3,13 +3,22 @@
 import { Resend } from "resend";
 import { contactSchema, ContactFormData } from "@/lib/schemas";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 /**
  * Server Action to send email via Resend API.
  * Implements server-side validation and security checks.
  */
 export async function sendEmail(data: ContactFormData) {
+  // 0. Ensure API Key exists
+  if (!process.env.RESEND_API_KEY) {
+    console.error("RESEND_API_KEY is not defined");
+    return {
+      success: false,
+      error: "Error de configuración en el servidor.",
+    };
+  }
+
+  const resend = new Resend(process.env.RESEND_API_KEY);
+
   // 1. Validate data on the server (Critical for security)
   const result = contactSchema.safeParse(data);
 
