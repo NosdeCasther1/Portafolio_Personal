@@ -1,60 +1,64 @@
+export interface Technology {
+  name: string;
+  iconKey: string;
+}
+
 export interface SkillCategory {
   category: string;
-  technologies: string[];
+  technologies: Technology[];
 }
 
 export const skills: SkillCategory[] = [
   {
     category: "Frontend",
     technologies: [
-      "React 19",
-      "Next.js (App Router)",
-      "TypeScript",
-      "Tailwind CSS v4",
-      "Framer Motion",
-      "Zustand",
-      "TanStack Query",
-      "Shadcn UI",
-      "NextUI",
+      { name: "React 19", iconKey: "SiReact" },
+      { name: "Next.js", iconKey: "SiNextdotjs" },
+      { name: "TypeScript", iconKey: "SiTypescript" },
+      { name: "Tailwind CSS", iconKey: "SiTailwindcss" },
+      { name: "Framer Motion", iconKey: "SiFramer" },
+      { name: "Zustand", iconKey: "SiZustand" },
+      { name: "TanStack Query", iconKey: "SiReactquery" },
+      { name: "Shadcn UI", iconKey: "SiShadcnui" },
     ],
   },
   {
     category: "Backend",
     technologies: [
-      "Node.js",
-      "Bun",
-      "PostgreSQL",
-      "Prisma ORM",
-      "Drizzle ORM",
-      "Supabase",
-      "Redis",
-      "REST & GraphQL",
-      "Next-Auth / Auth.js",
+      { name: "Node.js", iconKey: "SiNodedotjs" },
+      { name: "Bun", iconKey: "SiBun" },
+      { name: "PostgreSQL", iconKey: "SiPostgresql" },
+      { name: "Prisma ORM", iconKey: "SiPrisma" },
+      { name: "Drizzle ORM", iconKey: "SiDrizzle" },
+      { name: "Supabase", iconKey: "SiSupabase" },
+      { name: "Redis", iconKey: "SiRedis" },
+      { name: "GraphQL", iconKey: "SiGraphql" },
     ],
   },
   {
     category: "DevOps & Testing",
     technologies: [
-      "Docker",
-      "Vercel",
-      "GitHub Actions (CI/CD)",
-      "Jest",
-      "Vitest",
-      "Playwright",
-      "AWS (S3/Lambda)",
-      "Terraform",
+      { name: "Docker", iconKey: "SiDocker" },
+      { name: "Vercel", iconKey: "SiVercel" },
+      { name: "GitHub Actions", iconKey: "SiGithubactions" },
+      { name: "Jest", iconKey: "SiJest" },
+      { name: "Vitest", iconKey: "SiVitest" },
+      { name: "Playwright", iconKey: "SiPlaywright" },
+      { name: "AWS", iconKey: "SiAmazonwebservices" },
+      { name: "Terraform", iconKey: "SiTerraform" },
     ],
   },
   {
-    category: "Herramientas & Soft Skills",
+    category: "Herramientas",
     technologies: [
-      "Git & GitHub",
-      "Figma",
-      "Postman",
-      "Neovim/VS Code",
-      "SEO & Core Web Vitals",
-      "Agile / Scrum",
-      "Technical Mentoring",
+      { name: "Git", iconKey: "SiGit" },
+      { name: "GitHub", iconKey: "SiGithub" },
+      { name: "Figma", iconKey: "SiFigma" },
+      { name: "Postman", iconKey: "SiPostman" },
+      { name: "VS Code", iconKey: "SiVisualstudiocode" },
+      { name: "Neovim", iconKey: "SiNeovim" },
+      { name: "Linux", iconKey: "SiLinux" },
     ],
   },
 ];
+

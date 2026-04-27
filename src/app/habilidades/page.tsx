@@ -7,10 +7,21 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import * as SiIcons from "react-icons/si";
+import { IconType } from "react-icons";
 
 export const metadata: Metadata = {
   title: "Habilidades | Portafolio Personal",
   description: "Explora mi stack tecnológico y las herramientas que utilizo para crear aplicaciones web de alto impacto.",
+};
+
+/**
+ * Helper component to render technology icons from Simple Icons
+ */
+const TechIcon = ({ iconKey, className }: { iconKey: string; className?: string }) => {
+  const Icon = (SiIcons as Record<string, IconType>)[iconKey];
+  if (!Icon) return null;
+  return <Icon className={className} />;
 };
 
 export default function HabilidadesPage() {
@@ -43,11 +54,12 @@ export default function HabilidadesPage() {
               <CardContent className="flex flex-wrap gap-2">
                 {item.technologies.map((tech) => (
                   <Badge 
-                    key={tech} 
+                    key={tech.name} 
                     variant="secondary" 
-                    className="px-2.5 py-0.5 text-xs font-semibold bg-secondary/50 text-secondary-foreground border-transparent transition-all hover:bg-primary hover:text-primary-foreground"
+                    className="flex items-center gap-2 px-2.5 py-1 text-xs font-semibold bg-secondary/50 text-secondary-foreground border-transparent transition-all hover:bg-primary hover:text-primary-foreground"
                   >
-                    {tech}
+                    <TechIcon iconKey={tech.iconKey} className="size-4" />
+                    <span>{tech.name}</span>
                   </Badge>
                 ))}
               </CardContent>
@@ -58,3 +70,4 @@ export default function HabilidadesPage() {
     </main>
   );
 }
+
