@@ -3,7 +3,6 @@ import Link from "next/link";
 import { Github, Linkedin, Twitter, Mail } from "lucide-react";
 
 export const Footer = () => {
-  const currentYear = new Date().getFullYear();
 
   return (
     <footer className="bg-slate-50 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 transition-colors">
@@ -65,18 +64,6 @@ export const Footer = () => {
                 </a>
               ))}
             </div>
-          </div>
-        </div>
-
-        <div className="pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
-          <p>© {currentYear} Edson Castillo. Todos los derechos reservados.</p>
-          <div className="flex gap-8">
-            <Link href="/privacidad" className="hover:text-blue-600 transition-colors">
-              Privacidad
-            </Link>
-            <Link href="/terminos" className="hover:text-blue-600 transition-colors">
-              Términos
-            </Link>
           </div>
         </div>
       </div>
