@@ -12,7 +12,7 @@ export const Footer = () => {
           {/* Brand Section */}
           <div className="col-span-1 md:col-span-2">
             <Link href="/" className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white mb-4 block">
-              Portafolio<span className="text-blue-600">.</span>
+              Edson <span className="text-blue-600">Castillo</span>
             </Link>
             <p className="text-slate-600 dark:text-slate-400 max-w-sm leading-relaxed">
               Diseñando y construyendo experiencias digitales excepcionales con un enfoque en la calidad, 
@@ -69,7 +69,7 @@ export const Footer = () => {
         </div>
 
         <div className="pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
-          <p>© {currentYear} Portafolio Personal. Todos los derechos reservados.</p>
+          <p>© {currentYear} Edson Castillo. Todos los derechos reservados.</p>
           <div className="flex gap-8">
             <Link href="/privacidad" className="hover:text-blue-600 transition-colors">
               Privacidad

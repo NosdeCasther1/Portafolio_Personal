@@ -10,7 +10,7 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 const navLinks = [
   { name: "Inicio", href: "/" },
   { name: "Proyectos", href: "/proyectos" },
-  { name: "Habilidades", href: "/habilidades" },
+  { name: "Sobre Mí", href: "/sobre-mi" },
   { name: "Contacto", href: "/contacto" },
 ];
 
@@ -41,7 +41,7 @@ export const Navbar = () => {
             <Rocket size={20} />
           </div>
           <span className="text-xl font-bold tracking-tight text-foreground">
-            Portafolio<span className="text-primary">.</span>
+            Edson <span className="text-primary">Castillo</span>
           </span>
         </Link>
 

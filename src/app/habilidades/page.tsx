@@ -34,7 +34,7 @@ export default function HabilidadesPage() {
             Habilidades y <span className="text-primary">Herramientas</span>
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed">
-            Como Desarrollador Senior, me enfoco en utilizar las mejores tecnologías para construir productos digitales escalables, performantes y con una experiencia de usuario excepcional.
+            Como Ingeniero Full Stack, me enfoco en utilizar las mejores tecnologías para construir productos digitales escalables, performantes y con una experiencia de usuario excepcional.
           </p>
         </header>
 

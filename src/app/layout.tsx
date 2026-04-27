@@ -15,22 +15,22 @@ const baseUrl = "https://tu-portafolio.com"; // TODO: Cambiar por tu dominio rea
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    template: '%s | Mi Portafolio',
-    default: 'Mi Portafolio - Dev Senior',
+    template: '%s | Edson Castillo',
+    default: 'Edson Castillo | Full Stack Engineer | IA & Next.js',
   },
-  description: "Portafolio profesional de un Desarrollador Senior especializado en Next.js, React y arquitecturas modernas.",
+  description: "Portafolio profesional de Edson Castillo, Ingeniero Full Stack especializado en Next.js, Laravel e IA.",
   openGraph: {
-    title: "Mi Portafolio - Dev Senior",
-    description: "Portafolio profesional de un Desarrollador Senior especializado en Next.js, React y arquitecturas modernas.",
+    title: "Edson Castillo | Full Stack Engineer | IA & Next.js",
+    description: "Portafolio profesional de Edson Castillo, Ingeniero Full Stack especializado en Next.js, Laravel e IA.",
     url: baseUrl,
-    siteName: "Mi Portafolio",
+    siteName: "Edson Castillo",
     locale: "es_ES",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mi Portafolio - Dev Senior",
-    description: "Portafolio profesional de un Desarrollador Senior especializado en Next.js, React y arquitecturas modernas.",
+    title: "Edson Castillo | Full Stack Engineer | IA & Next.js",
+    description: "Portafolio profesional de Edson Castillo, Ingeniero Full Stack especializado en Next.js, Laravel e IA.",
   },
 };
 
