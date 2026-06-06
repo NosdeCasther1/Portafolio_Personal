@@ -55,7 +55,7 @@ export default function Home() {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
             </span>
             <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
-              Disponible para nuevos proyectos
+              Disponible para proyectos y posiciones full-time
             </span>
           </div>
         </motion.div>
@@ -130,7 +130,7 @@ export default function Home() {
         {/* Iconos Sociales */}
         <motion.div variants={itemVariants} className="pt-4 flex items-center justify-center gap-6">
           <Link 
-            href="https://github.com" 
+            href="https://github.com/NosdeCasther1" 
             target="_blank" 
             className="p-2 text-muted-foreground hover:text-foreground transition-all duration-200 hover:scale-110"
             aria-label="GitHub"
@@ -138,7 +138,7 @@ export default function Home() {
             <Github className="w-6 h-6" />
           </Link>
           <Link 
-            href="https://linkedin.com" 
+            href="https://www.linkedin.com/in/edson-castillo" 
             target="_blank" 
             className="p-2 text-muted-foreground hover:text-foreground transition-all duration-200 hover:scale-110"
             aria-label="LinkedIn"
@@ -154,7 +154,7 @@ export default function Home() {
             <Twitter className="w-6 h-6" />
           </Link>
           <Link 
-            href="mailto:hola@tuemail.com" 
+            href="mailto:edsoncastilloh90@gmail.com" 
             className="p-2 text-muted-foreground hover:text-foreground transition-all duration-200 hover:scale-110"
             aria-label="Email"
           >

@@ -9,7 +9,10 @@ export interface Project {
   date: string;
   content: string;
   image?: string;
+  images?: string[];
   tags?: string[];
+  github?: string;
+  demo?: string;
 }
 
 const projectsDirectory = path.join(process.cwd(), 'content/projects');
@@ -40,8 +43,16 @@ export function getProjects(): Project[] {
       } as Project;
     });
 
-  // Sort projects by date
-  return allProjectsData.sort((a, b) => (a.date < b.date ? 1 : -1));
+  // Sort projects: in-development projects go last, otherwise sort by date descending
+  return allProjectsData.sort((a, b) => {
+    const aIsDev = a.title.includes('(En Desarrollo)');
+    const bIsDev = b.title.includes('(En Desarrollo)');
+    
+    if (aIsDev && !bIsDev) return 1;
+    if (!aIsDev && bIsDev) return -1;
+    
+    return a.date < b.date ? 1 : -1;
+  });
 }
 
 export function getProjectBySlug(slug: string): Project {

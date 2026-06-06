@@ -42,7 +42,7 @@ export async function sendEmail(prevState: FormState, formData: FormData): Promi
   try {
     const { error } = await resend.emails.send({
       from: "Portfolio <onboarding@resend.dev>",
-      to: ["nosdecasther@gmail.com"], // Sustituir por el correo real en producción
+      to: ["edsoncastilloh90@gmail.com"],
       subject: `Nuevo mensaje de ${name}`,
       replyTo: email,
       text: `Nombre: ${name}\nEmail: ${email}\n\nMensaje:\n${message}`,

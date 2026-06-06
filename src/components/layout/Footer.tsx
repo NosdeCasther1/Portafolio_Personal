@@ -50,14 +50,17 @@ export const Footer = () => {
             </h4>
             <div className="flex gap-4">
               {[
-                { icon: Github, href: "#" },
-                { icon: Linkedin, href: "#" },
-                { icon: Twitter, href: "#" },
-                { icon: Mail, href: "#" },
+                { icon: Github, href: "https://github.com/NosdeCasther1", label: "GitHub" },
+                { icon: Linkedin, href: "https://www.linkedin.com/in/edson-castillo", label: "LinkedIn" },
+                { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
+                { icon: Mail, href: "mailto:edsoncastilloh90@gmail.com", label: "Email" },
               ].map((social, index) => (
                 <a
                   key={index}
                   href={social.href}
+                  target={social.href.startsWith("mailto:") ? undefined : "_blank"}
+                  rel={social.href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
+                  aria-label={social.label}
                   className="w-10 h-10 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-blue-600 hover:text-white transition-all"
                 >
                   <social.icon size={18} />

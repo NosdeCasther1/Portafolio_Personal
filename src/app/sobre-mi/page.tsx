@@ -12,7 +12,8 @@ import {
   Calendar,
   MapPin,
   ExternalLink,
-  ChevronRight
+  ChevronRight,
+  Mic
 } from "lucide-react";
 import { 
   experienceData, 
@@ -37,9 +38,10 @@ import { Badge } from "@/components/ui/badge";
 import * as SiIcons from "react-icons/si";
 import { IconType } from "react-icons";
 import { cn } from "@/lib/utils";
+import { ImageCarousel } from "@/components/ImageCarousel";
 
 // --- Tipado de Datos ---
-const TAB_VALUES = ["sobre-mi", "experiencia", "habilidades", "educacion", "desarrollo"] as const;
+const TAB_VALUES = ["sobre-mi", "experiencia", "habilidades", "educacion", "desarrollo", "charlas"] as const;
 type TabValue = (typeof TAB_VALUES)[number];
 
 // --- Subcomponente: Iconos de Tecnología ---
@@ -124,7 +126,8 @@ export default function AboutDashboard() {
                   {tab === "experiencia" && <Briefcase className="w-4 h-4" />}
                   {tab === "habilidades" && <Cpu className="w-4 h-4" />}
                   {tab === "educacion" && <GraduationCap className="w-4 h-4" />}
-                  {tab === "desarrollo" && <Award className="w-4 h-4" />}
+                   {tab === "desarrollo" && <Award className="w-4 h-4" />}
+                  {tab === "charlas" && <Mic className="w-4 h-4" />}
                   <span className="relative z-10">{tab.replace("-", " ")}</span>
                   <div className="absolute right-4 opacity-0 group-hover:opacity-100 md:block hidden transition-opacity">
                     <ChevronRight className="w-3 h-3" />
@@ -145,10 +148,10 @@ export default function AboutDashboard() {
                 <motion.div key="sobre-mi" {...fadeInContent} className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
                   <div className="lg:col-span-4 flex justify-center lg:justify-start">
                     <div className="relative group">
-                      <div className="absolute -inset-1 bg-gradient-to-tr from-primary to-primary-foreground rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
-                      <div className="relative aspect-square w-64 h-64 md:w-72 md:h-72 rounded-2xl overflow-hidden border-4 border-background shadow-2xl">
+                      <div className="absolute -inset-1 bg-gradient-to-tr from-primary to-primary-foreground rounded-full blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
+                      <div className="relative aspect-square w-64 h-64 md:w-72 md:h-72 rounded-full overflow-hidden border-4 border-background shadow-2xl">
                         <Image
-                          src="/perfil.jpg"
+                          src="/perfil.png"
                           alt="Edson Castillo"
                           fill
                           className="object-cover transform group-hover:scale-105 transition-transform duration-500"
@@ -164,7 +167,7 @@ export default function AboutDashboard() {
                         Soy un Ingeniero en Sistemas apasionado por la convergencia entre el diseño elegante y el código robusto. Mi enfoque se centra en construir soluciones tecnológicas que no solo resuelvan problemas, sino que también cautiven a los usuarios.
                       </p>
                       <p className="text-lg text-muted-foreground leading-relaxed">
-                        Con amplia experiencia en el sector financiero y el desarrollo de aplicaciones inteligentes impulsadas por IA, aporto una perspectiva equilibrada entre seguridad, escalabilidad y experiencia de usuario. Mi objetivo es transformar ideas complejas en productos digitales intuitivos y eficientes.
+                        Con amplia experiencia en el sector financiero y el desarrollo de aplicaciones inteligentes impulsadas por IA, aporto una perspectiva equilibrada entre seguridad, escalabilidad y experiencia de usuario. Mi objetivo es transform ideas complejas en productos digitales intuitivos y eficientes.
                       </p>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
@@ -179,7 +182,7 @@ export default function AboutDashboard() {
                         <Calendar className="w-5 h-5 text-primary" />
                         <div>
                           <p className="text-xs text-muted-foreground uppercase font-semibold">Estado</p>
-                          <p className="text-sm font-medium">Disponible para Proyectos</p>
+                          <p className="text-sm font-medium">Disponible para proyectos y posiciones full-time</p>
                         </div>
                       </div>
                     </div>
@@ -306,6 +309,30 @@ export default function AboutDashboard() {
                       )}
                     </Card>
                   ))}
+                </motion.div>
+              </TabsContent>
+              
+              {/* CHARLAS */}
+              <TabsContent key="tab-charlas" value="charlas" className="mt-0 outline-none">
+                <motion.div key="charlas" {...fadeInContent} className="space-y-6">
+                  <header className="space-y-2 mb-8">
+                    <h2 className="text-3xl font-bold text-foreground">Charlas y Capacitaciones</h2>
+                    <p className="text-lg text-muted-foreground leading-relaxed">
+                      Compartiendo conocimiento y experiencias con la comunidad.
+                    </p>
+                  </header>
+                  <ImageCarousel images={[
+                    "/projects/charlas/captura-1.jpg",
+                    "/projects/charlas/captura-2.jpg",
+                    "/projects/charlas/captura-3.jpg",
+                    "/projects/charlas/captura-4.jpg",
+                    "/projects/charlas/captura-5.jpg",
+                    "/projects/charlas/captura-6.jpg",
+                    "/projects/charlas/captura-7.jpg",
+                    "/projects/charlas/captura-8.jpg",
+                    "/projects/charlas/captura-9.jpg",
+                    "/projects/charlas/captura-10.jpg"
+                  ]} />
                 </motion.div>
               </TabsContent>
             </AnimatePresence>

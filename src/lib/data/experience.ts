@@ -30,10 +30,11 @@ export const experienceData: Experience[] = [
     company: "Proyectos Independientes",
     period: "2021 – Presente",
     description: [
-      "Plataforma de Consulta Psicológica con IA: Diseñé y desplegué una aplicación web utilizando TypeScript y Next.js, integrando la API de Google Gemini para el procesamiento de lenguaje natural en tiempo real.",
-      "Sistema de Gestión de Membresías: Desarrollé una aplicación Full Stack con PHP y MySQL para la administración automatizada de datos, optimizando el control de ingresos y la generación de reportes estadísticos.",
-      "Optimización de Interfaz: Implementé animaciones avanzadas y transiciones fluidas mediante Framer Motion, logrando un producto digital con estándares modernos de UX/UI.",
-      "Arquitectura de Datos: Construí e integré APIs RESTful para la comunicación eficiente entre módulos de backend y frontend."
+      "Control de Ventas Live: Desarrollé una SPA de e-commerce en tiempo real utilizando Laravel, React, Inertia.js y WebSockets para la gestión instantánea de inventario durante transmisiones en vivo.",
+      "OptiBill ISP: Implementé una plataforma integral con arquitectura Headless (Next.js y Laravel), optimizando consultas SQL complejas para reducir tiempos de respuesta en bases de datos de alto volumen.",
+      "App Multiplataforma con IA: Construí una aplicación móvil con React Native y Expo que integra servicios de inteligencia artificial para la transcripción estructurada de voz a texto.",
+      "Plataforma de Consulta Psicológica con IA: Diseñé una aplicación web interactiva empleando TypeScript y la API de Google Gemini para procesamiento de lenguaje natural en tiempo real.",
+      "Desarrollo Full Stack y Calidad: Creación de sistemas de administración como el Sistema Eclesiástico (PHP/MySQL) y diseño de suites de pruebas E2E automatizadas con Cypress."
     ],
     type: "Trabajo"
   },
