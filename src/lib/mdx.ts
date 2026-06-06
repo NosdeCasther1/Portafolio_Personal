@@ -13,6 +13,11 @@ export interface Project {
   tags?: string[];
   github?: string;
   demo?: string;
+  features?: {
+    title: string;
+    description: string;
+    icon?: string;
+  }[];
 }
 
 const projectsDirectory = path.join(process.cwd(), 'content/projects');
