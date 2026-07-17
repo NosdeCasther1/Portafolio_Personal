@@ -2,161 +2,283 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, Variants } from "framer-motion";
-import { Github, Linkedin, MessageCircle, Send, Mail, ArrowRight, User } from "lucide-react";
-import { SiNextdotjs, SiTypescript, SiLaravel, SiGooglegemini, SiScrumalliance } from "react-icons/si";
+import {
+  Github,
+  Linkedin,
+  MessageCircle,
+  Send,
+  Mail,
+  ArrowRight,
+  User,
+} from "lucide-react";
+import {
+  SiNextdotjs,
+  SiTypescript,
+  SiLaravel,
+  SiGooglegemini,
+  SiReact,
+  SiGit,
+  SiOpenai,
+  SiClaude,
+} from "react-icons/si";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/components/language-provider";
 
-/**
- * Hero Section - Principal componente de la página de inicio.
- * Adaptado para Next.js App Router, Shadcn UI, Tailwind v4 y Framer Motion.
- */
 export default function Home() {
-  // Variantes para la animación en cascada
+  const { language } = useLanguage();
+  const copy = {
+    es: {
+      eyebrow: "Desarrollador Full Stack · IA",
+      greeting: "Hola, soy",
+      headline: "Construyo productos digitales con precisión.",
+      description:
+        "Egresado de Ingeniería en Sistemas. Especializado en TypeScript, Next.js y Laravel. Integro agentes de IA para transformar problemas complejos en soluciones escalables y de alto rendimiento.",
+      projects: "Ver proyectos",
+      about: "Sobre mí",
+      imageAlt: "Edson Castillo, desarrollador Full Stack",
+      codeFocus: "IA + producto",
+    },
+    en: {
+      eyebrow: "Full Stack Developer · AI",
+      greeting: "Hi, I'm",
+      headline: "I build digital products with precision.",
+      description:
+        "Systems Engineering graduate specializing in TypeScript, Next.js, and Laravel. I integrate AI agents to turn complex problems into scalable, high-performance solutions.",
+      projects: "View projects",
+      about: "About me",
+      imageAlt: "Edson Castillo, Full Stack developer",
+      codeFocus: "AI + product",
+    },
+  }[language];
+
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2,
+        staggerChildren: 0.12,
+        delayChildren: 0.15,
       },
     },
   };
 
   const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
+    hidden: { opacity: 0, y: 22 },
+    visible: {
+      opacity: 1,
       y: 0,
-      transition: { duration: 0.5, ease: "easeOut" }
+      transition: { duration: 0.55, ease: "easeOut" },
     },
   };
 
+  const stack = [
+    { icon: SiNextdotjs, label: "Next.js", className: "" },
+    { icon: SiTypescript, label: "TypeScript", className: "text-[#3178C6]" },
+    { icon: SiReact, label: "React", className: "text-[#61DAFB]" },
+    { icon: SiLaravel, label: "Laravel", className: "text-[#FF2D20]" },
+    { icon: SiOpenai, label: "ChatGPT", className: "" },
+    { icon: SiClaude, label: "Claude", className: "text-[#D97757]" },
+    { icon: SiGooglegemini, label: "Gemini", className: "text-[#8E75C2]" },
+    { icon: SiGit, label: "Git", className: "text-[#F05032]" },
+  ];
+
   return (
-    <main className="relative flex flex-col items-center justify-center min-h-[calc(100vh-80px)] px-6 py-12 md:py-24 overflow-hidden">
-      {/* Elementos decorativos de fondo (Opcional para extra "Premium") */}
-      <div className="absolute inset-0 -z-10 overflow-hidden">
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-primary/5 blur-[120px]" />
-        <div className="absolute bottom-[10%] right-[-10%] w-[30%] h-[30%] rounded-full bg-secondary/5 blur-[100px]" />
+    <main className="relative overflow-hidden">
+      <div className="pointer-events-none absolute inset-0 -z-10 tech-grid opacity-70" />
+      <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+        <div className="absolute top-[-12%] left-[-8%] h-[42%] w-[42%] rounded-full bg-primary/10 blur-[120px]" />
+        <div className="absolute bottom-[8%] right-[-10%] h-[36%] w-[36%] rounded-full bg-primary/8 blur-[110px]" />
       </div>
 
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        className="w-full max-w-4xl text-center space-y-10"
-      >
-        {/* Badge de disponibilidad */}
-        <motion.div variants={itemVariants} className="flex justify-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border bg-background/50 backdrop-blur-sm shadow-sm">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-            </span>
-            <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
-              Disponible para proyectos y posiciones full-time
-            </span>
-          </div>
-        </motion.div>
+      <section className="mx-auto grid min-h-[calc(100vh-80px)] w-full max-w-7xl items-center gap-12 px-6 py-14 lg:grid-cols-2 lg:gap-16 lg:py-20">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="space-y-8"
+        >
+          <motion.p
+            variants={itemVariants}
+            className="font-mono-label text-xs text-primary"
+          >
+            {copy.eyebrow}
+          </motion.p>
 
-        {/* Título Principal con Gradiente */}
-        <motion.header variants={itemVariants} className="space-y-6">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground leading-[1.1]">
-            Ingeniería de Software Full Stack <br />
-            <span className="bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent">
-              Potenciada por IA
-            </span>
-          </h1>
-          <p className="max-w-3xl mx-auto text-lg md:text-xl text-muted-foreground leading-relaxed">
-            Soy <span className="text-foreground font-semibold">Edson Castillo</span>, egresado de Ingeniería en Sistemas y desarrollador Full Stack especializado en TypeScript, Next.js y Laravel. 
-            Optimizo el desarrollo de productos digitales mediante la integración de agentes de IA programados, 
-            transformando problemas complejos en soluciones escalables y de alto rendimiento en tiempo récord.
-          </p>
-        </motion.header>
+          <motion.header variants={itemVariants} className="space-y-5">
+            <h1 className="text-4xl font-bold leading-[1.08] text-foreground md:text-5xl lg:text-6xl">
+              {copy.greeting}{" "}
+              <span className="bg-gradient-to-r from-primary via-primary to-primary/70 bg-clip-text text-transparent">
+                Edson
+              </span>
+              .
+              <br />
+              {copy.headline}
+            </h1>
+            <p className="max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
+              {copy.description}
+            </p>
+          </motion.header>
 
-        {/* Llamadas a la Acción (CTA) */}
-        <motion.div variants={itemVariants} className="space-y-10">
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button render={<Link href="/proyectos" />} nativeButton={false} size="lg" className="rounded-full px-8 gap-2 h-12 text-base font-medium shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all duration-300">
-              Ver proyectos <ArrowRight className="w-4 h-4" />
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-col gap-3 sm:flex-row sm:items-center"
+          >
+            <Button
+              render={<Link href="/proyectos" />}
+              nativeButton={false}
+              size="lg"
+              className="h-12 gap-2 rounded-lg px-7 text-base font-semibold shadow-lg shadow-primary/20 transition-all duration-300 hover:shadow-primary/30"
+            >
+              {copy.projects} <ArrowRight className="h-4 w-4" />
             </Button>
-            <Button render={<Link href="/sobre-mi" />} nativeButton={false} variant="secondary" size="lg" className="rounded-full px-8 gap-2 h-12 text-base font-medium bg-secondary/50 hover:bg-secondary/80 backdrop-blur-sm transition-all duration-300">
-              Sobre mí <User className="w-4 h-4" />
+            <Button
+              render={<Link href="/sobre-mi" />}
+              nativeButton={false}
+              variant="outline"
+              size="lg"
+              className="h-12 gap-2 rounded-lg px-7 text-base font-semibold"
+            >
+              {copy.about} <User className="h-4 w-4" />
             </Button>
-          </div>
+          </motion.div>
 
-          {/* Stack Principal Icons Row */}
-          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 pt-4 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-500">
-            <div className="flex items-center gap-2 group">
-              <SiNextdotjs className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" />
-              <span className="text-xs font-semibold tracking-wide uppercase">Next.js</span>
-            </div>
-            <div className="flex items-center gap-2 group">
-              <SiTypescript className="w-5 h-5 text-[#3178C6] transition-transform duration-300 group-hover:scale-110" />
-              <span className="text-xs font-semibold tracking-wide uppercase">TypeScript</span>
-            </div>
-            <div className="flex items-center gap-2 group">
-              <SiGooglegemini className="w-5 h-5 text-[#8E75C2] transition-transform duration-300 group-hover:scale-110" />
-              <span className="text-xs font-semibold tracking-wide uppercase">IA (Gemini)</span>
-            </div>
-            <div className="flex items-center gap-2 group">
-              <SiLaravel className="w-5 h-5 text-[#FF2D20] transition-transform duration-300 group-hover:scale-110" />
-              <span className="text-xs font-semibold tracking-wide uppercase">Laravel</span>
-            </div>
-            <div className="flex items-center gap-2 group">
-              <SiScrumalliance className="w-5 h-5 text-[#62AB37] transition-transform duration-300 group-hover:scale-110" />
-              <span className="text-xs font-semibold tracking-wide uppercase">Scrum</span>
-            </div>
-          </div>
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-wrap items-center gap-x-6 gap-y-3 pt-2"
+          >
+            {stack.map(({ icon: Icon, label, className }) => (
+              <div
+                key={label}
+                className="group flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
+              >
+                <Icon
+                  className={`h-5 w-5 transition-transform duration-300 group-hover:scale-110 ${className}`}
+                />
+                <span className="font-mono text-[11px] font-medium uppercase tracking-wider">
+                  {label}
+                </span>
+              </div>
+            ))}
+          </motion.div>
+
+          <motion.div
+            variants={itemVariants}
+            className="flex items-center gap-4 pt-1"
+          >
+            {[
+              {
+                href: "https://github.com/NosdeCasther1",
+                icon: Github,
+                label: "GitHub",
+              },
+              {
+                href: "https://www.linkedin.com/in/edson-castillo",
+                icon: Linkedin,
+                label: "LinkedIn",
+              },
+              {
+                href: "https://wa.me/50247170626",
+                icon: MessageCircle,
+                label: "WhatsApp",
+              },
+              {
+                href: "https://t.me/+50247170626",
+                icon: Send,
+                label: "Telegram",
+              },
+              {
+                href: "mailto:edsoncastilloh90@gmail.com",
+                icon: Mail,
+                label: "Email",
+              },
+            ].map(({ href, icon: Icon, label }) => (
+              <Link
+                key={label}
+                href={href}
+                target={href.startsWith("mailto:") ? undefined : "_blank"}
+                rel={
+                  href.startsWith("mailto:") ? undefined : "noopener noreferrer"
+                }
+                className="p-1.5 text-muted-foreground transition-all duration-200 hover:scale-110 hover:text-foreground"
+                aria-label={label}
+              >
+                <Icon className="h-5 w-5" />
+              </Link>
+            ))}
+          </motion.div>
         </motion.div>
 
-        {/* Iconos Sociales */}
-        <motion.div variants={itemVariants} className="pt-4 flex items-center justify-center gap-6">
-          <Link 
-            href="https://github.com/NosdeCasther1" 
-            target="_blank" 
-            className="p-2 text-muted-foreground hover:text-foreground transition-all duration-200 hover:scale-110"
-            aria-label="GitHub"
-          >
-            <Github className="w-6 h-6" />
-          </Link>
-          <Link 
-            href="https://www.linkedin.com/in/edson-castillo" 
-            target="_blank" 
-            className="p-2 text-muted-foreground hover:text-foreground transition-all duration-200 hover:scale-110"
-            aria-label="LinkedIn"
-          >
-            <Linkedin className="w-6 h-6" />
-          </Link>
-          <Link 
-            href="https://wa.me/50247170626" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="p-2 text-muted-foreground hover:text-foreground transition-all duration-200 hover:scale-110"
-            aria-label="WhatsApp"
-          >
-            <MessageCircle className="w-6 h-6" />
-          </Link>
-          <Link 
-            href="https://t.me/+50247170626" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="p-2 text-muted-foreground hover:text-foreground transition-all duration-200 hover:scale-110"
-            aria-label="Telegram"
-          >
-            <Send className="w-6 h-6" />
-          </Link>
-          <Link 
-            href="mailto:edsoncastilloh90@gmail.com" 
-            className="p-2 text-muted-foreground hover:text-foreground transition-all duration-200 hover:scale-110"
-            aria-label="Email"
-          >
-            <Mail className="w-6 h-6" />
-          </Link>
-        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.96 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
+          className="relative mx-auto w-full max-w-md lg:max-w-none"
+        >
+          <div className="absolute left-1/2 top-1/2 -z-10 h-[78%] w-[78%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/25 blur-3xl" />
+          <div className="absolute left-1/2 top-1/2 -z-10 h-[62%] w-[62%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/15 blur-2xl" />
 
-      </motion.div>
+          <div className="relative aspect-square overflow-hidden rounded-full border border-primary/20 bg-background/40 shadow-[0_0_80px_-20px] shadow-primary/40">
+            <Image
+              src="/perfil-laptop.webp"
+              alt={copy.imageAlt}
+              fill
+              sizes="(max-width: 1024px) 90vw, 480px"
+              className="object-cover object-top"
+              priority
+            />
+          </div>
+
+          <motion.aside
+            initial={{ opacity: 0, x: 24, y: 12 }}
+            animate={{ opacity: 1, x: 0, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.55, ease: "easeOut" }}
+            className="absolute -right-2 bottom-[12%] hidden w-[min(100%,240px)] rounded-xl border border-border/60 bg-background/85 p-4 font-mono text-[11px] shadow-xl backdrop-blur-md sm:block md:-right-4 lg:right-0"
+            aria-hidden="true"
+          >
+            <div className="mb-3 flex items-center gap-1.5">
+              <span className="h-2 w-2 rounded-full bg-red-400/80" />
+              <span className="h-2 w-2 rounded-full bg-amber-400/80" />
+              <span className="h-2 w-2 rounded-full bg-emerald-400/80" />
+              <span className="ml-2 text-[10px] uppercase tracking-wider text-muted-foreground">
+                developer.ts
+              </span>
+            </div>
+            <pre className="leading-relaxed text-muted-foreground">
+              <code>
+                <span className="text-primary">const</span> edson = {"{"}
+                {"\n"}
+                {"  "}name:{" "}
+                <span className="text-emerald-500 dark:text-emerald-400">
+                  &quot;Edson Castillo&quot;
+                </span>
+                ,{"\n"}
+                {"  "}role:{" "}
+                <span className="text-emerald-500 dark:text-emerald-400">
+                  &quot;Full Stack&quot;
+                </span>
+                ,{"\n"}
+                {"  "}stack: [{" "}
+                <span className="text-amber-600 dark:text-amber-400">
+                  &quot;Next.js&quot;
+                </span>
+                ,{" "}
+                <span className="text-amber-600 dark:text-amber-400">
+                  &quot;Laravel&quot;
+                </span>{" "}
+                ],{"\n"}
+                {"  "}focus:{" "}
+                <span className="text-emerald-500 dark:text-emerald-400">
+                  &quot;{copy.codeFocus}&quot;
+                </span>
+                ,{"\n"}
+                {"}"};
+              </code>
+            </pre>
+          </motion.aside>
+        </motion.div>
+      </section>
     </main>
   );
 }

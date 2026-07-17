@@ -1,18 +1,29 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
+import { Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "@/app/globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { ThemeProvider } from "@/components/theme-provider";
+import { LanguageProvider } from "@/components/language-provider";
 import { cn } from "@/lib/utils";
 import { siteConfig } from "@/lib/site";
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-space-grotesk",
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-jetbrains-mono",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    template: '%s | Edson Castillo',
+    template: "%s | Edson Castillo",
     default: siteConfig.title,
   },
   description: siteConfig.description,
@@ -76,7 +87,7 @@ const structuredData = {
       "@id": `${siteConfig.url}/#person`,
       name: siteConfig.name,
       url: siteConfig.url,
-      image: `${siteConfig.url}/perfil.webp`,
+      image: `${siteConfig.url}/perfil-laptop.webp`,
       email: `mailto:${siteConfig.email}`,
       telephone: siteConfig.phone,
       jobTitle: "Desarrollador Full Stack",
@@ -87,6 +98,12 @@ const structuredData = {
         "TypeScript",
         "React",
         "Laravel",
+        "ChatGPT",
+        "Claude",
+        "Codex",
+        "Agentes de IA",
+        "MCP",
+        "Agent Skills",
         "Inteligencia artificial",
         "Desarrollo Full Stack",
       ],
@@ -109,8 +126,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className={cn("scroll-smooth", "font-sans", geist.variable)} suppressHydrationWarning>
-      <body className={geist.className}>
+    <html
+      lang="es"
+      className={cn(
+        "scroll-smooth",
+        "font-sans",
+        spaceGrotesk.variable,
+        jetbrainsMono.variable
+      )}
+      suppressHydrationWarning
+    >
+      <body className={cn(spaceGrotesk.className, "antialiased")}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -123,11 +149,11 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Navbar />
-          <div className="min-h-screen pt-10">
-            {children}
-          </div>
-          <Footer />
+          <LanguageProvider>
+            <Navbar />
+            <div className="min-h-screen pt-10">{children}</div>
+            <Footer />
+          </LanguageProvider>
         </ThemeProvider>
       </body>
     </html>

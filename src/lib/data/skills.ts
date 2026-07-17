@@ -23,7 +23,19 @@ export const skills: SkillCategory[] = [
       { name: "React Native / Expo", iconKey: "SiExpo" },
       { name: "Tailwind CSS", iconKey: "SiTailwindcss" },
       { name: "APIs RESTful & WebSockets", iconKey: "SiSocketdotio" },
-      { name: "Gemini API / Integración IA", iconKey: "SiGooglegemini" },
+    ],
+  },
+  {
+    category: "IA, Agentes & Automatización",
+    technologies: [
+      { name: "ChatGPT / OpenAI", iconKey: "SiOpenai" },
+      { name: "Claude (Anthropic)", iconKey: "SiClaude" },
+      { name: "Codex", iconKey: "SiOpenai" },
+      { name: "Google Gemini", iconKey: "SiGooglegemini" },
+      { name: "Creación de Agentes de IA", iconKey: "" },
+      { name: "Agent Skills", iconKey: "" },
+      { name: "MCP (Model Context Protocol)", iconKey: "" },
+      { name: "Automatización con IA", iconKey: "" },
     ],
   },
   {

@@ -151,11 +151,11 @@ export default function AboutDashboard() {
                       <div className="absolute -inset-1 bg-gradient-to-tr from-primary to-primary-foreground rounded-full blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
                       <div className="relative aspect-square w-64 h-64 md:w-72 md:h-72 rounded-full overflow-hidden border-4 border-background shadow-2xl">
                         <Image
-                          src="/perfil.webp"
+                          src="/perfil-laptop.webp"
                           alt="Edson Castillo"
                           fill
                           sizes="(max-width: 768px) 256px, 288px"
-                          className="object-cover transform group-hover:scale-105 transition-transform duration-500"
+                          className="object-cover object-top transform group-hover:scale-105 transition-transform duration-500"
                           priority
                         />
                       </div>

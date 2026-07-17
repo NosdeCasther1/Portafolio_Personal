@@ -12,13 +12,15 @@ import { IconType } from "react-icons";
 
 export const metadata: Metadata = {
   title: "Habilidades y stack tecnológico",
-  description: "Tecnologías y herramientas que utiliza Edson Castillo para desarrollar aplicaciones web: Next.js, React, TypeScript, Laravel, bases de datos e IA.",
+  description:
+    "Stack de Edson Castillo: Next.js, React, TypeScript, Laravel, ChatGPT, Claude, Codex, agentes de IA, Agent Skills y MCP.",
   alternates: {
     canonical: "/habilidades",
   },
   openGraph: {
     title: "Habilidades y stack tecnológico | Edson Castillo",
-    description: "Conoce las tecnologías que utilizo para crear aplicaciones web modernas, escalables y de alto rendimiento.",
+    description:
+      "Desarrollo Full Stack e integración de agentes con ChatGPT, Claude, Codex, Skills y MCP.",
     url: "/habilidades",
   },
 };
@@ -42,7 +44,7 @@ export default function HabilidadesPage() {
             Habilidades y <span className="text-primary">Herramientas</span>
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed">
-            Como Desarrollador Full Stack, me enfoco en utilizar las mejores tecnologías para construir productos digitales escalables, performantes y con una experiencia de usuario excepcional.
+            Como Desarrollador Full Stack, combino ingeniería de software con automatización e IA: agentes, Agent Skills y MCP con ChatGPT, Claude y Codex para acelerar productos digitales escalables.
           </p>
         </header>
 
