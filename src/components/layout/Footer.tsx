@@ -40,6 +40,16 @@ export const Footer = () => {
                   Sobre Mí
                 </Link>
               </li>
+              <li>
+                <Link href="/habilidades" className="text-slate-600 dark:text-slate-400 hover:text-blue-600 transition-colors">
+                  Habilidades
+                </Link>
+              </li>
+              <li>
+                <Link href="/contacto" className="text-slate-600 dark:text-slate-400 hover:text-blue-600 transition-colors">
+                  Contacto
+                </Link>
+              </li>
             </ul>
           </div>
 

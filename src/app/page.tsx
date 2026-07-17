@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { motion, Variants } from "framer-motion";
-import { Github, Linkedin, MessageCircle, Send, Mail, ArrowRight, User, Download } from "lucide-react";
+import { Github, Linkedin, MessageCircle, Send, Mail, ArrowRight, User } from "lucide-react";
 import { SiNextdotjs, SiTypescript, SiLaravel, SiGooglegemini, SiScrumalliance } from "react-icons/si";
 import { Button } from "@/components/ui/button";
 
@@ -69,7 +69,7 @@ export default function Home() {
             </span>
           </h1>
           <p className="max-w-3xl mx-auto text-lg md:text-xl text-muted-foreground leading-relaxed">
-            Soy <span className="text-foreground font-semibold">Edson Castillo</span>, Ingeniero en Sistemas (Pensum Cerrado) especializado en TypeScript, Next.js y Laravel. 
+            Soy <span className="text-foreground font-semibold">Edson Castillo</span>, egresado de Ingeniería en Sistemas y desarrollador Full Stack especializado en TypeScript, Next.js y Laravel. 
             Optimizo el desarrollo de productos digitales mediante la integración de agentes de IA programados, 
             transformando problemas complejos en soluciones escalables y de alto rendimiento en tiempo récord.
           </p>
@@ -83,22 +83,6 @@ export default function Home() {
             </Button>
             <Button render={<Link href="/sobre-mi" />} nativeButton={false} variant="secondary" size="lg" className="rounded-full px-8 gap-2 h-12 text-base font-medium bg-secondary/50 hover:bg-secondary/80 backdrop-blur-sm transition-all duration-300">
               Sobre mí <User className="w-4 h-4" />
-            </Button>
-            <Button 
-              render={
-                <a 
-                  href="/cv.pdf" 
-                  download="Edson_Castillo_CV.pdf" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                />
-              } 
-              nativeButton={false} 
-              variant="outline" 
-              size="lg" 
-              className="rounded-full px-8 gap-2 h-12 text-base font-medium transition-all duration-300 border-primary/20 hover:border-primary/50"
-            >
-              Descargar CV <Download className="w-4 h-4" />
             </Button>
           </div>
 

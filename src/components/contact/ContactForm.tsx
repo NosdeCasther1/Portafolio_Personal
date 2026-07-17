@@ -50,9 +50,11 @@ export const ContactForm = () => {
         <input type="text" {...register("honeypot")} className="hidden" tabIndex={-1} autoComplete="off" />
 
         <div className="space-y-2">
-          <label className="text-sm font-semibold text-slate-700 dark:text-slate-300">Nombre</label>
+          <label htmlFor="contact-name" className="text-sm font-semibold text-slate-700 dark:text-slate-300">Nombre</label>
           <input
+            id="contact-name"
             {...register("name")}
+            aria-invalid={Boolean(errors.name)}
             className={cn(
               "w-full px-4 py-3 rounded-xl border bg-slate-50 dark:bg-slate-950 transition-all focus:ring-2 focus:ring-blue-500 outline-none",
               errors.name ? "border-red-500" : "border-slate-200 dark:border-slate-800"
@@ -63,10 +65,12 @@ export const ContactForm = () => {
         </div>
 
         <div className="space-y-2">
-          <label className="text-sm font-semibold text-slate-700 dark:text-slate-300">Email</label>
+          <label htmlFor="contact-email" className="text-sm font-semibold text-slate-700 dark:text-slate-300">Email</label>
           <input
+            id="contact-email"
             {...register("email")}
             type="email"
+            aria-invalid={Boolean(errors.email)}
             className={cn(
               "w-full px-4 py-3 rounded-xl border bg-slate-50 dark:bg-slate-950 transition-all focus:ring-2 focus:ring-blue-500 outline-none",
               errors.email ? "border-red-500" : "border-slate-200 dark:border-slate-800"
@@ -77,10 +81,12 @@ export const ContactForm = () => {
         </div>
 
         <div className="space-y-2">
-          <label className="text-sm font-semibold text-slate-700 dark:text-slate-300">Mensaje</label>
+          <label htmlFor="contact-message" className="text-sm font-semibold text-slate-700 dark:text-slate-300">Mensaje</label>
           <textarea
+            id="contact-message"
             {...register("message")}
             rows={5}
+            aria-invalid={Boolean(errors.message)}
             className={cn(
               "w-full px-4 py-3 rounded-xl border bg-slate-50 dark:bg-slate-950 transition-all focus:ring-2 focus:ring-blue-500 outline-none resize-none",
               errors.message ? "border-red-500" : "border-slate-200 dark:border-slate-800"

@@ -2,6 +2,7 @@
 
 import { motion, Variants } from "framer-motion";
 import { Github, ExternalLink, Calendar as CalendarIcon } from "lucide-react";
+import Image from "next/image";
 
 interface ProjectHeroProps {
   project: {
@@ -35,9 +36,9 @@ export default function ProjectHero({ project }: ProjectHeroProps) {
   });
 
   return (
-    <header className="relative min-h-[60vh] flex items-center justify-center overflow-hidden py-12 md:py-20 mb-12 rounded-[2.5rem] bg-black/20 border border-white/5 shadow-2xl backdrop-blur-sm">
+    <header className="relative min-h-[60vh] flex items-center justify-center overflow-hidden py-12 md:py-20 mb-12 rounded-[2.5rem] bg-gradient-to-br from-card via-muted/60 to-primary/10 border border-border shadow-xl dark:from-slate-950 dark:via-slate-900 dark:to-indigo-950/50 dark:border-white/10 dark:shadow-2xl">
       {/* Grid Radial Background para textura sutil */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(15,23,42,0.06)_1px,transparent_1px)] dark:bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
 
       <div className="px-6 md:px-12 w-full relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
@@ -50,16 +51,16 @@ export default function ProjectHero({ project }: ProjectHeroProps) {
             className="flex flex-col gap-6 text-left"
           >
             <motion.div variants={itemVariants}>
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-indigo-500/10 px-3 py-1 text-sm font-medium text-indigo-400 ring-1 ring-inset ring-indigo-500/20 mb-4">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary ring-1 ring-inset ring-primary/20 mb-4">
                 <CalendarIcon className="w-4 h-4" /> Lanzamiento {formattedDate}
               </span>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-2 leading-tight">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-foreground mb-2 leading-tight">
                 {project.title}
               </h1>
             </motion.div>
 
             <motion.div variants={itemVariants}>
-              <p className="text-lg text-slate-400 leading-relaxed max-w-xl">
+              <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
                 {project.description}
               </p>
             </motion.div>
@@ -82,7 +83,7 @@ export default function ProjectHero({ project }: ProjectHeroProps) {
                   href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group inline-flex items-center justify-center gap-2 rounded-xl bg-white/5 px-6 py-3 font-medium text-white ring-1 ring-white/10 transition-all hover:bg-white/10 hover:-translate-y-0.5"
+                  className="group inline-flex items-center justify-center gap-2 rounded-xl bg-background/70 px-6 py-3 font-medium text-foreground ring-1 ring-border transition-all hover:bg-accent hover:-translate-y-0.5 dark:bg-white/5 dark:text-white dark:ring-white/10 dark:hover:bg-white/10"
                 >
                   <Github className="w-4 h-4" />
                   <span>Ver Código</span>
@@ -106,16 +107,17 @@ export default function ProjectHero({ project }: ProjectHeroProps) {
               <motion.div
                 animate={{ y: [-8, 8, -8] }}
                 transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-                className="relative rounded-2xl overflow-hidden border border-white/10 bg-[#161616] shadow-2xl aspect-video group"
+                className="relative rounded-2xl overflow-hidden border border-border bg-muted shadow-2xl aspect-video group dark:border-white/10 dark:bg-[#161616]"
               >
-                <img
+                <Image
                   src={project.image}
                   alt={`Mockup de ${project.title}`}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                   className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
-                  decoding="async"
-                  fetchPriority="high"
+                  priority
                 />
-                <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-2xl pointer-events-none" />
+                <div className="absolute inset-0 ring-1 ring-inset ring-black/5 dark:ring-white/10 rounded-2xl pointer-events-none" />
               </motion.div>
             </motion.div>
           )}

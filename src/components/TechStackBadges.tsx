@@ -28,10 +28,10 @@ const tagColors: Record<string, string> = {
   "Tailwind CSS": "#06B6D4",
   "Tailwind": "#06B6D4",
   "React Query": "#FF4154",
-  "Shadcn": "#ffffff",
+  "Shadcn": "#64748B",
   "Radix UI": "#3E63DD",
   "Recharts": "#3182BD",
-  "TipTap": "#0D0D0D",
+  "TipTap": "#64748B",
   "HTML5": "#E34F26",
   "CSS3": "#1572B6",
   "HTML": "#E34F26",
@@ -41,7 +41,7 @@ const tagColors: Record<string, string> = {
   "Cypress": "#49C39E",
   "Docker": "#2496ED",
   "Git": "#F05032",
-  "GitHub": "#ffffff",
+  "GitHub": "#64748B",
   "WebSockets": "#E01E5A",
   "C++": "#00599C",
   "Python": "#3776AB",
@@ -80,9 +80,9 @@ export default function TechStackBadges({ tags }: TechStackBadgesProps) {
     : defaultTechStack;
 
   return (
-    <div className="w-full mt-12 md:mt-16 pt-10 mb-2 border-t border-white/10">
+    <div className="w-full mt-12 md:mt-16 pt-10 mb-2 border-t border-border">
       <div className="text-center mb-8">
-        <h3 className="text-2xl font-bold text-white tracking-tight">
+        <h3 className="text-2xl font-bold text-foreground tracking-tight">
           Stack Tecnológico
         </h3>
       </div>
@@ -105,21 +105,17 @@ export default function TechStackBadges({ tags }: TechStackBadgesProps) {
             <motion.div
               variants={{
                 initial: {
-                  borderColor: "rgba(255, 255, 255, 0.1)",
-                  color: "#cbd5e1", // text-slate-300
                   boxShadow: "0 0 0px rgba(0,0,0,0)",
-                  backgroundColor: "rgba(255, 255, 255, 0.03)"
                 },
                 hover: {
                   scale: 1.05,
                   borderColor: tech.color,
                   color: tech.color,
                   boxShadow: `0 0 20px ${tech.color}50, inset 0 0 10px ${tech.color}20`,
-                  backgroundColor: "rgba(255, 255, 255, 0.05)"
                 }
               }}
               transition={{ duration: 0.3, ease: "easeOut" }}
-              className="px-5 py-2.5 rounded-full border backdrop-blur-sm font-semibold tracking-wide text-sm flex items-center justify-center"
+              className="px-5 py-2.5 rounded-full border border-border bg-muted/40 text-muted-foreground backdrop-blur-sm font-semibold tracking-wide text-sm flex items-center justify-center transition-colors dark:bg-white/[0.03]"
             >
               {tech.name}
             </motion.div>

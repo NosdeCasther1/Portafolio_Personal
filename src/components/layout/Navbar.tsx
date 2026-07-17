@@ -69,11 +69,12 @@ export const Navbar = () => {
           
           <div className="flex items-center gap-3 border-l border-border/40 pl-6">
             <ThemeToggle />
-            <a href="mailto:edsoncastilloh90@gmail.com">
-              <button suppressHydrationWarning className="bg-primary text-primary-foreground px-5 py-2 rounded-full text-sm font-semibold hover:opacity-90 transition-all active:scale-95">
-                Hablemos
-              </button>
-            </a>
+            <Link
+              href="/contacto"
+              className="bg-primary text-primary-foreground px-5 py-2 rounded-full text-sm font-semibold hover:opacity-90 transition-all active:scale-95"
+            >
+              Hablemos
+            </Link>
           </div>
         </div>
 
@@ -110,11 +111,13 @@ export const Navbar = () => {
                   {link.name}
                 </Link>
               ))}
-              <a href="mailto:edsoncastilloh90@gmail.com" onClick={() => setIsOpen(false)}>
-                <button suppressHydrationWarning className="bg-primary text-primary-foreground w-full py-3 rounded-xl font-semibold mt-2 active:scale-95 transition-transform">
-                  Hablemos
-                </button>
-              </a>
+              <Link
+                href="/contacto"
+                onClick={() => setIsOpen(false)}
+                className="bg-primary text-primary-foreground w-full py-3 rounded-xl font-semibold mt-2 text-center active:scale-95 transition-transform"
+              >
+                Hablemos
+              </Link>
             </div>
           </motion.div>
         )}

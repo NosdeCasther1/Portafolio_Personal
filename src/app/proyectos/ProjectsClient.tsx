@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion, Variants } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import { Card } from '@/components/ui/card';
@@ -61,12 +62,12 @@ export default function ProjectsClient({ projects }: ProjectsClientProps) {
               <Card className="h-full flex flex-col overflow-hidden border-muted bg-card/50 backdrop-blur-sm hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/5 transition-all duration-300 group-hover:border-primary/20">
                 {project.image && (
                   <div className="w-full aspect-video overflow-hidden rounded-t-xl bg-muted/50 relative">
-                    <img 
+                    <Image
                       src={project.image} 
                       alt={project.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                      loading="lazy"
-                      decoding="async"
                     />
                   </div>
                 )}

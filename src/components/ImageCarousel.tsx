@@ -73,17 +73,17 @@ export function ImageCarousel({ images }: ImageCarouselProps) {
     <>
       <section className="mt-12 md:mt-16 mb-8 w-full flex flex-col items-center">
         <div className="text-center mb-10">
-          <h3 className="text-3xl font-bold text-white tracking-tight">
+          <h3 className="text-3xl font-bold text-foreground tracking-tight">
             Galería del Proyecto
           </h3>
-          <p className="text-slate-400 mt-2 font-medium">
+          <p className="text-muted-foreground mt-2 font-medium">
             Explora la interfaz y experiencia de usuario del sistema.
           </p>
         </div>
 
         {/* VISOR PRINCIPAL (Preview en página) */}
         <div 
-          className="relative w-full max-w-5xl aspect-video rounded-3xl overflow-hidden bg-[#161616] shadow-2xl border border-white/10 group cursor-pointer" 
+          className="relative w-full max-w-5xl aspect-video rounded-3xl overflow-hidden bg-muted shadow-2xl border border-border dark:bg-[#161616] dark:border-white/10 group cursor-pointer" 
           onClick={() => setIsLightboxOpen(true)}
         >
           <AnimatePresence initial={false} custom={direction}>
@@ -137,7 +137,7 @@ export function ImageCarousel({ images }: ImageCarouselProps) {
                 className={`relative flex-shrink-0 w-32 aspect-video rounded-xl overflow-hidden transition-all duration-300 snap-center
                   ${
                     currentIndex === index
-                      ? "ring-2 ring-indigo-500 ring-offset-2 ring-offset-[#0a0a0a] opacity-100 scale-105"
+                      ? "ring-2 ring-primary ring-offset-2 ring-offset-background opacity-100 scale-105"
                       : "opacity-40 hover:opacity-100"
                   }
                 `}

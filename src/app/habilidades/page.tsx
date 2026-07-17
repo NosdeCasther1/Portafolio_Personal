@@ -11,8 +11,16 @@ import * as SiIcons from "react-icons/si";
 import { IconType } from "react-icons";
 
 export const metadata: Metadata = {
-  title: "Habilidades | Portafolio Personal",
-  description: "Explora mi stack tecnológico y las herramientas que utilizo para crear aplicaciones web de alto impacto.",
+  title: "Habilidades y stack tecnológico",
+  description: "Tecnologías y herramientas que utiliza Edson Castillo para desarrollar aplicaciones web: Next.js, React, TypeScript, Laravel, bases de datos e IA.",
+  alternates: {
+    canonical: "/habilidades",
+  },
+  openGraph: {
+    title: "Habilidades y stack tecnológico | Edson Castillo",
+    description: "Conoce las tecnologías que utilizo para crear aplicaciones web modernas, escalables y de alto rendimiento.",
+    url: "/habilidades",
+  },
 };
 
 /**
