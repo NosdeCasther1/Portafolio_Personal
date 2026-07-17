@@ -34,6 +34,7 @@
     "jest": "^30.3.0",
     "jest-environment-jsdom": "^30.3.0",
     "postcss": "^8.5.12",
+    "sharp": "^0.35.3",
     "tailwindcss": "^4.2.4",
     "ts-node": "^10.9.2",
     "typescript": "^5.0.0"
@@ -45,6 +46,7 @@
     "lint": "next lint",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "optimize:images": "node scripts/optimize-images.mjs"
   }
 }

@@ -2,8 +2,9 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Rocket } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
@@ -37,8 +38,15 @@ export const Navbar = () => {
       <div className="container mx-auto px-6 flex justify-between items-center">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 group">
-          <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-primary-foreground group-hover:rotate-12 transition-transform duration-300">
-            <Rocket size={20} />
+          <div className="relative w-10 h-10 overflow-hidden rounded-full border-2 border-primary/40 shadow-sm transition-transform duration-300 group-hover:scale-105">
+            <Image
+              src="/perfil.webp"
+              alt="Foto de Edson Castillo"
+              fill
+              sizes="40px"
+              className="object-cover"
+              priority
+            />
           </div>
           <span className="text-xl font-bold tracking-tight text-foreground">
             Edson <span className="text-primary">Castillo</span>

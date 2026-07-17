@@ -16,12 +16,12 @@ export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
     template: '%s | Edson Castillo',
-    default: 'Edson Castillo | Full Stack Engineer | IA & Next.js',
+    default: 'Edson Castillo | Full Stack Developer | IA & Next.js',
   },
-  description: "Portafolio profesional de Edson Castillo, Ingeniero Full Stack especializado en Next.js, Laravel e IA.",
+  description: "Portafolio profesional de Edson Castillo, Desarrollador Full Stack especializado en Next.js, Laravel e IA.",
   openGraph: {
-    title: "Edson Castillo | Full Stack Engineer | IA & Next.js",
-    description: "Portafolio profesional de Edson Castillo, Ingeniero Full Stack especializado en Next.js, Laravel e IA.",
+    title: "Edson Castillo | Full Stack Developer | IA & Next.js",
+    description: "Portafolio profesional de Edson Castillo, Desarrollador Full Stack especializado en Next.js, Laravel e IA.",
     url: baseUrl,
     siteName: "Edson Castillo",
     locale: "es_ES",
@@ -29,8 +29,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Edson Castillo | Full Stack Engineer | IA & Next.js",
-    description: "Portafolio profesional de Edson Castillo, Ingeniero Full Stack especializado en Next.js, Laravel e IA.",
+    title: "Edson Castillo | Full Stack Developer | IA & Next.js",
+    description: "Portafolio profesional de Edson Castillo, Desarrollador Full Stack especializado en Next.js, Laravel e IA.",
   },
 };
 

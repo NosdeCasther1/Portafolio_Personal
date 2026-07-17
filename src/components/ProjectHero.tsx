@@ -112,6 +112,8 @@ export default function ProjectHero({ project }: ProjectHeroProps) {
                   src={project.image}
                   alt={`Mockup de ${project.title}`}
                   className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
+                  decoding="async"
+                  fetchPriority="high"
                 />
                 <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-2xl pointer-events-none" />
               </motion.div>

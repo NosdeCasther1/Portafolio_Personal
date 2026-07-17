@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -151,9 +151,10 @@ export default function AboutDashboard() {
                       <div className="absolute -inset-1 bg-gradient-to-tr from-primary to-primary-foreground rounded-full blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
                       <div className="relative aspect-square w-64 h-64 md:w-72 md:h-72 rounded-full overflow-hidden border-4 border-background shadow-2xl">
                         <Image
-                          src="/perfil.png"
+                          src="/perfil.webp"
                           alt="Edson Castillo"
                           fill
+                          sizes="(max-width: 768px) 256px, 288px"
                           className="object-cover transform group-hover:scale-105 transition-transform duration-500"
                           priority
                         />
@@ -162,9 +163,9 @@ export default function AboutDashboard() {
                   </div>
                   <div className="lg:col-span-8 space-y-6">
                     <div className="prose prose-slate dark:prose-invert max-w-none">
-                      <h2 className="text-3xl font-bold text-foreground mb-4">Ingeniero Full Stack & Especialista en IA</h2>
+                      <h2 className="text-3xl font-bold text-foreground mb-4">Desarrollador Full Stack & Especialista en IA</h2>
                       <p className="text-lg text-muted-foreground leading-relaxed">
-                        Soy un Ingeniero en Sistemas apasionado por la convergencia entre el diseño elegante y el código robusto. Mi enfoque se centra en construir soluciones tecnológicas que no solo resuelvan problemas, sino que también cautiven a los usuarios.
+                        Soy egresado de Ingeniería en Sistemas (pénsum cerrado) y desarrollador de software apasionado por la convergencia entre el diseño elegante y el código robusto. Mi enfoque se centra en construir soluciones tecnológicas que no solo resuelvan problemas, sino que también cautiven a los usuarios.
                       </p>
                       <p className="text-lg text-muted-foreground leading-relaxed">
                         Con amplia experiencia en el sector financiero y el desarrollo de aplicaciones inteligentes impulsadas por IA, aporto una perspectiva equilibrada entre seguridad, escalabilidad y experiencia de usuario. Mi objetivo es transform ideas complejas en productos digitales intuitivos y eficientes.
@@ -322,16 +323,16 @@ export default function AboutDashboard() {
                     </p>
                   </header>
                   <ImageCarousel images={[
-                    "/projects/charlas/captura-1.jpg",
-                    "/projects/charlas/captura-2.jpg",
-                    "/projects/charlas/captura-3.jpg",
-                    "/projects/charlas/captura-4.jpg",
-                    "/projects/charlas/captura-5.jpg",
-                    "/projects/charlas/captura-6.jpg",
-                    "/projects/charlas/captura-7.jpg",
-                    "/projects/charlas/captura-8.jpg",
-                    "/projects/charlas/captura-9.jpg",
-                    "/projects/charlas/captura-10.jpg"
+                    "/projects/charlas/captura-1.webp",
+                    "/projects/charlas/captura-2.webp",
+                    "/projects/charlas/captura-3.webp",
+                    "/projects/charlas/captura-4.webp",
+                    "/projects/charlas/captura-5.webp",
+                    "/projects/charlas/captura-6.webp",
+                    "/projects/charlas/captura-7.webp",
+                    "/projects/charlas/captura-8.webp",
+                    "/projects/charlas/captura-9.webp",
+                    "/projects/charlas/captura-10.webp"
                   ]} />
                 </motion.div>
               </TabsContent>

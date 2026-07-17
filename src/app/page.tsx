@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { motion, Variants } from "framer-motion";
-import { Github, Linkedin, Twitter, Mail, ArrowRight, User, Download } from "lucide-react";
+import { Github, Linkedin, MessageCircle, Send, Mail, ArrowRight, User, Download } from "lucide-react";
 import { SiNextdotjs, SiTypescript, SiLaravel, SiGooglegemini, SiScrumalliance } from "react-icons/si";
 import { Button } from "@/components/ui/button";
 
@@ -146,12 +146,22 @@ export default function Home() {
             <Linkedin className="w-6 h-6" />
           </Link>
           <Link 
-            href="https://twitter.com" 
+            href="https://wa.me/50247170626" 
             target="_blank" 
+            rel="noopener noreferrer"
             className="p-2 text-muted-foreground hover:text-foreground transition-all duration-200 hover:scale-110"
-            aria-label="Twitter"
+            aria-label="WhatsApp"
           >
-            <Twitter className="w-6 h-6" />
+            <MessageCircle className="w-6 h-6" />
+          </Link>
+          <Link 
+            href="https://t.me/+50247170626" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="p-2 text-muted-foreground hover:text-foreground transition-all duration-200 hover:scale-110"
+            aria-label="Telegram"
+          >
+            <Send className="w-6 h-6" />
           </Link>
           <Link 
             href="mailto:edsoncastilloh90@gmail.com" 

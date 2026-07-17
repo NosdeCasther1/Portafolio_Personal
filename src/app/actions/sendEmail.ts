@@ -43,7 +43,7 @@ export async function sendEmail(data: ContactFormData) {
     // 3. Send email using Resend
     const { data: resendData, error: resendError } = await resend.emails.send({
       from: "Portafolio <onboarding@resend.dev>", // Replace with your verified domain
-      to: ["tu-email@ejemplo.com"], // Your target email
+      to: ["edsoncastilloh90@gmail.com"],
       subject: `Nuevo mensaje de contacto de ${name}`,
       replyTo: email,
       text: `Nombre: ${name}\nEmail: ${email}\n\nMensaje:\n${message}`,

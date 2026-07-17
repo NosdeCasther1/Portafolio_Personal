@@ -3,7 +3,7 @@
 import { Resend } from "resend";
 import { contactSchema } from "@/lib/schemas";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const CONTACT_EMAIL = "edsoncastilloh90@gmail.com";
 
 export type FormState = {
   success: boolean;
@@ -11,8 +11,17 @@ export type FormState = {
 };
 
 export async function sendEmail(prevState: FormState, formData: FormData): Promise<FormState> {
-  // Artificial delay for UI testing
-  await new Promise((resolve) => setTimeout(resolve, 1000));
+  const apiKey = process.env.RESEND_API_KEY;
+
+  if (!apiKey) {
+    console.error("RESEND_API_KEY is not defined");
+    return {
+      success: false,
+      error: "El servicio de correo no está configurado. Inténtalo más tarde.",
+    };
+  }
+
+  const resend = new Resend(apiKey);
 
   const rawData = {
     name: formData.get("name"),
@@ -42,7 +51,7 @@ export async function sendEmail(prevState: FormState, formData: FormData): Promi
   try {
     const { error } = await resend.emails.send({
       from: "Portfolio <onboarding@resend.dev>",
-      to: ["edsoncastilloh90@gmail.com"],
+      to: [CONTACT_EMAIL],
       subject: `Nuevo mensaje de ${name}`,
       replyTo: email,
       text: `Nombre: ${name}\nEmail: ${email}\n\nMensaje:\n${message}`,

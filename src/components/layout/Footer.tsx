@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { Github, Linkedin, Twitter, Mail } from "lucide-react";
+import { Github, Linkedin, Mail, MessageCircle, Send } from "lucide-react";
 
 export const Footer = () => {
 
@@ -52,7 +52,8 @@ export const Footer = () => {
               {[
                 { icon: Github, href: "https://github.com/NosdeCasther1", label: "GitHub" },
                 { icon: Linkedin, href: "https://www.linkedin.com/in/edson-castillo", label: "LinkedIn" },
-                { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
+                { icon: MessageCircle, href: "https://wa.me/50247170626", label: "WhatsApp" },
+                { icon: Send, href: "https://t.me/+50247170626", label: "Telegram" },
                 { icon: Mail, href: "mailto:edsoncastilloh90@gmail.com", label: "Email" },
               ].map((social, index) => (
                 <a

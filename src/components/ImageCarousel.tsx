@@ -101,6 +101,8 @@ export function ImageCarousel({ images }: ImageCarouselProps) {
                 opacity: { duration: 0.2 },
               }}
               className="absolute inset-0 w-full h-full object-cover"
+              loading={currentIndex === 0 ? "eager" : "lazy"}
+              decoding="async"
             />
           </AnimatePresence>
           
@@ -140,7 +142,13 @@ export function ImageCarousel({ images }: ImageCarouselProps) {
                   }
                 `}
               >
-                <img src={img} alt={`Thumbnail ${index + 1}`} className="w-full h-full object-cover" />
+                <img
+                  src={img}
+                  alt={`Thumbnail ${index + 1}`}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                />
               </button>
             ))}
           </div>
@@ -185,6 +193,7 @@ export function ImageCarousel({ images }: ImageCarouselProps) {
                   exit="exit"
                   transition={{ type: "spring", stiffness: 300, damping: 30 }}
                   className="absolute max-w-full max-h-full object-contain rounded-lg shadow-[0_0_50px_rgba(0,0,0,0.5)]"
+                  decoding="async"
                 />
               </AnimatePresence>
 
@@ -221,7 +230,13 @@ export function ImageCarousel({ images }: ImageCarouselProps) {
                       }
                     `}
                   >
-                    <img src={img} alt={`Thumbnail ${idx + 1}`} className="w-full h-full object-cover" />
+                    <img
+                      src={img}
+                      alt={`Thumbnail ${idx + 1}`}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                      decoding="async"
+                    />
                   </button>
                 ))}
               </div>
