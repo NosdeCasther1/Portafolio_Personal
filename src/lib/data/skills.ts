@@ -8,6 +8,12 @@ export interface SkillCategory {
   technologies: Technology[];
 }
 
+export const aiAgentExperience: string[] = [
+  "Diseñé un ecosistema multiplataforma (React Native + TypeScript) integrando la API de Google Gemini para procesamiento de lenguaje natural en tiempo real.",
+  "Desarrollé e integré la lógica del asistente de IA \"Luz\" para atención vía WhatsApp Business (Meta Cloud API), automatizando respuestas y flujos de atención al cliente.",
+  "Aplico Agent Skills y MCP en mi flujo de desarrollo diario para acelerar la construcción de productos digitales.",
+];
+
 export const skills: SkillCategory[] = [
   {
     category: "Desarrollo Web & Programación",
@@ -32,10 +38,10 @@ export const skills: SkillCategory[] = [
       { name: "Claude (Anthropic)", iconKey: "SiClaude" },
       { name: "Codex", iconKey: "SiOpenai" },
       { name: "Google Gemini", iconKey: "SiGooglegemini" },
-      { name: "Creación de Agentes de IA", iconKey: "" },
+      { name: "Diseño y Desarrollo de Agentes de IA", iconKey: "" },
       { name: "Agent Skills", iconKey: "" },
       { name: "MCP (Model Context Protocol)", iconKey: "" },
-      { name: "Automatización con IA", iconKey: "" },
+      { name: "Automatización de Flujos con IA", iconKey: "" },
     ],
   },
   {
@@ -46,8 +52,7 @@ export const skills: SkillCategory[] = [
       { name: "Vercel (CI/CD)", iconKey: "SiVercel" },
       { name: "Render (Deployments)", iconKey: "SiRender" },
       { name: "Docker", iconKey: "SiDocker" },
-      { name: "Microsoft Azure", iconKey: "SiMicrosoftazure" },
-      { name: "Google Cloud Platform", iconKey: "SiGooglecloud" },
+      { name: "AWS (Conceptos Core)", iconKey: "" },
     ],
   },
   {
@@ -57,10 +62,7 @@ export const skills: SkillCategory[] = [
       { name: "Mikrotik", iconKey: "SiMikrotik" },
       { name: "Ubiquiti", iconKey: "SiUbiquiti" },
       { name: "TP-Link", iconKey: "SiTplink" },
-      { name: "Wireshark", iconKey: "SiWireshark" },
-      { name: "Nmap", iconKey: "SiNmap" },
       { name: "Firewalls & VPNs", iconKey: "" },
-      { name: "Hacking Ético (Wi-Fi)", iconKey: "SiKalilinux" },
       { name: "Linux (Terminal)", iconKey: "SiLinux" },
       { name: "Windows Server (AD)", iconKey: "SiWindows" },
     ],
@@ -70,8 +72,6 @@ export const skills: SkillCategory[] = [
     technologies: [
       { name: "Git", iconKey: "SiGit" },
       { name: "GitHub", iconKey: "SiGithub" },
-      { name: "Cypress", iconKey: "SiCypress" },
-      { name: "Jest & Testing Library", iconKey: "SiTestinglibrary" },
       { name: "Scrum Certified", iconKey: "SiScrumalliance" },
       { name: "Visual Studio Code", iconKey: "SiVisualstudiocode" },
       { name: "Adobe Photoshop", iconKey: "SiAdobephotoshop" },
@@ -79,5 +79,3 @@ export const skills: SkillCategory[] = [
     ],
   },
 ];
-
-

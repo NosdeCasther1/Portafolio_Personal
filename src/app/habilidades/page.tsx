@@ -1,14 +1,16 @@
 import { Metadata } from "next";
-import { skills } from "@/lib/data/skills";
+import { aiAgentExperience, skills } from "@/lib/data/skills";
 import {
   Card,
   CardContent,
+  CardDescription,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import * as SiIcons from "react-icons/si";
 import { IconType } from "react-icons";
+import { Bot } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Habilidades y stack tecnológico",
@@ -48,6 +50,33 @@ export default function HabilidadesPage() {
           </p>
         </header>
 
+        <Card className="mb-8 border-primary/20 bg-card/50 backdrop-blur-sm">
+          <CardHeader className="space-y-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+              <Bot className="h-5 w-5" />
+            </div>
+            <CardTitle className="text-xl font-bold tracking-tight">
+              Experiencia con Agentes de IA
+            </CardTitle>
+            <CardDescription className="text-base leading-relaxed">
+              Aplicaciones reales de agentes, automatización y protocolos en productos digitales.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <ul className="space-y-3">
+              {aiAgentExperience.map((item) => (
+                <li
+                  key={item}
+                  className="flex gap-3 text-sm leading-relaxed text-muted-foreground"
+                >
+                  <span className="mt-1.5 block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </CardContent>
+        </Card>
+
         {/* Skills Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {skills.map((item, index) => (
@@ -80,4 +109,3 @@ export default function HabilidadesPage() {
     </main>
   );
 }
-

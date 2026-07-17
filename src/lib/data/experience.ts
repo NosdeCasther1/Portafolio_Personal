@@ -35,7 +35,7 @@ export const experienceData: Experience[] = [
       "App Multiplataforma con IA: Construí una aplicación móvil con React Native y Expo que integra servicios de inteligencia artificial para la transcripción estructurada de voz a texto.",
       "Plataforma de Consulta Psicológica con IA: Diseñé una aplicación web interactiva empleando TypeScript y la API de Google Gemini para procesamiento de lenguaje natural en tiempo real.",
       "Agentes y Automatización con IA: Diseño e integración de flujos con ChatGPT, Claude y Codex para automatización, creación de agentes, Agent Skills y servidores MCP.",
-      "Desarrollo Full Stack y Calidad: Creación de sistemas de administración como el Sistema Eclesiástico (PHP/MySQL) y diseño de suites de pruebas E2E automatizadas con Cypress."
+      "Desarrollo Full Stack y Calidad: Creación de sistemas de administración como el Sistema Eclesiástico (PHP/MySQL) y diseño de suites de pruebas E2E automatizadas."
     ],
     type: "Trabajo"
   },

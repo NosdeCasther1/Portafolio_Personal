@@ -34,7 +34,7 @@ export default function Home() {
       greeting: "Hola, soy",
       headline: "Construyo productos digitales con precisión.",
       description:
-        "Egresado de Ingeniería en Sistemas. Especializado en TypeScript, Next.js y Laravel. Integro agentes de IA para transformar problemas complejos en soluciones escalables y de alto rendimiento.",
+        "Egresado de Ingeniería en Sistemas. Especializado en desarrollo Full Stack (Next.js, Laravel, TypeScript) y en el diseño e integración de agentes de IA (Claude, ChatGPT, MCP) para automatizar procesos y construir productos digitales escalables.",
       projects: "Ver proyectos",
       about: "Sobre mí",
       imageAlt: "Edson Castillo, desarrollador Full Stack",
@@ -45,7 +45,7 @@ export default function Home() {
       greeting: "Hi, I'm",
       headline: "I build digital products with precision.",
       description:
-        "Systems Engineering graduate specializing in TypeScript, Next.js, and Laravel. I integrate AI agents to turn complex problems into scalable, high-performance solutions.",
+        "Systems Engineering graduate specializing in Full Stack development (Next.js, Laravel, TypeScript) and in designing and integrating AI agents (Claude, ChatGPT, MCP) to automate processes and build scalable digital products.",
       projects: "View projects",
       about: "About me",
       imageAlt: "Edson Castillo, Full Stack developer",
