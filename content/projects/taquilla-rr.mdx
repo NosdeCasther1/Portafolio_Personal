@@ -1,0 +1,40 @@
+---
+title: "Taquilla RR"
+date: "2026-07-10"
+description: "Sistema de comandas para eventos en vivo: los asistentes piden desde su celular sin crear cuenta y el staff recibe, prepara y entrega desde una cola con alertas en tiempo real."
+image: "/projects/taquilla-rr/portada.webp"
+images: [
+  "/projects/taquilla-rr/portada.webp"
+]
+tags: ["Next.js 14", "TypeScript", "Prisma", "TiDB", "Auth.js", "SWR"]
+demo: "https://taquilla-rr.vercel.app/ordenar"
+github: "https://github.com/NosdeCasther1/Taquilla-RR"
+features:
+  - title: "Pedido Sin Registro"
+    description: "El asistente abre un enlace o escanea un QR desde su asiento, elige del menú y envía su pedido indicando fila y grupo. Sin cuenta, sin instalación, sin fricción."
+    icon: "mobile"
+  - title: "Cola con Alertas en Vivo"
+    description: "SWR consulta cada cuatro segundos: suena un aviso al entrar un pedido, la tarjeta nueva se resalta y el título de la pestaña lleva la cuenta de pendientes."
+    icon: "zap"
+  - title: "Autorización en el Servidor"
+    description: "El callback de Auth.js en el middleware declara ruta por ruta y método por método qué es público y qué exige sesión de staff, en el Edge Runtime y sin tocar la base."
+    icon: "lock"
+  - title: "Cobro Agrupado"
+    description: "Las cuentas pendientes se agrupan por persona para cobrar varios pedidos de una sola vez, con columnas de auditoría separadas para la entrega y para el cobro."
+    icon: "checksquare"
+  - title: "Resumen de Ventas"
+    description: "Totales y ventas por menú filtrables por rango de fecha, para cerrar la caja del evento sin contar comandas a mano."
+    icon: "chart"
+---
+
+## Sobre el Proyecto
+
+Taquilla RR resuelve el desorden de tomar pedidos en papel durante un evento con público sentado. Nació para la *Noche de Cine* de Rey de Reyes, donde el problema real era doble: los asistentes no debían levantarse de su asiento y el staff no debía perder ningún pedido en la carrera.
+
+La solución separa dos experiencias sobre una misma base de datos. La pública no pide registro alguno —el asistente entra por QR, ordena y recibe un enlace a su propio recibo, cuyo identificador se guarda en su dispositivo para consultar el historial—. La del staff está protegida por sesión y por rol, con una cola que avisa por sonido y por notificación del navegador, captura manual de respaldo para quien no pueda usar el formulario, administración de menús y control de apertura y cierre de taquilla.
+
+Sobre Next.js 14 con App Router y Prisma contra TiDB, la aplicación se diseñó *mobile-first* porque en la práctica todo el mundo —asistentes y staff— la usa desde el teléfono, en penumbra y con prisa.
+
+<PremiumFeatures />
+
+<TechStackBadges />
