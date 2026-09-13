@@ -30,6 +30,7 @@ export const experienceData: Experience[] = [
     company: "Proyectos Independientes",
     period: "2021 – Presente",
     description: [
+      "CyberCast: Construí el sistema de administración integral de un proveedor de internet en Laravel 12 y React 19 sobre PostgreSQL, cubriendo facturación recurrente, cobranza, control de red MikroTik mediante RouterOS, rentabilidad y portal del cliente, respaldado por una suite de 171 pruebas automatizadas.",
       "Control de Ventas Live: Desarrollé una SPA de e-commerce en tiempo real utilizando Laravel, React, Inertia.js y WebSockets para la gestión instantánea de inventario durante transmisiones en vivo.",
       "OptiBill ISP: Implementé una plataforma integral con arquitectura Headless (Next.js y Laravel), optimizando consultas SQL complejas para reducir tiempos de respuesta en bases de datos de alto volumen.",
       "App Multiplataforma con IA: Construí una aplicación móvil con React Native y Expo que integra servicios de inteligencia artificial para la transcripción estructurada de voz a texto.",
