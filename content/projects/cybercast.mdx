@@ -1,0 +1,40 @@
+---
+title: "CyberCast"
+date: "2026-09-12"
+description: "Sistema completo de administración para proveedores de internet: facturación recurrente, cobranza, control de red MikroTik, rentabilidad y portal del cliente."
+image: "/projects/cybercast/portada.webp"
+images: [
+  "/projects/cybercast/portada.webp"
+]
+tags: ["Laravel 12", "React 19", "Inertia.js", "PostgreSQL", "RouterOS"]
+demo: ""
+github: ""
+features:
+  - title: "Facturación y Cobranza"
+    description: "Generación diaria de cargos con ciclos por contrato, cobro proporcional al reconectar y recibos correlativos sin huecos, garantizados por una fila contador bloqueada."
+    icon: "database"
+  - title: "Control de Red MikroTik"
+    description: "Cola de operaciones sobre RouterOS que escribe y después verifica: un router inalcanzable reintenta y, agotado el plazo, pasa a alerta en lugar de fallar en silencio."
+    icon: "server"
+  - title: "Rentabilidad Base de Caja"
+    description: "Reportes que separan el dinero recibido del periodo facturado y advierten cuando el resultado incluye recuperación de deuda antigua."
+    icon: "chart"
+  - title: "Auditoría Inmutable"
+    description: "La bitácora se engancha al modelo y no al controlador, de modo que un cambio hecho por consola o por una tarea programada también queda registrado."
+    icon: "lock"
+  - title: "Portal del Cliente Aislado"
+    description: "Frente público de solo consulta con guardia, tabla de credenciales y archivo de rutas propios: una sesión de portal nunca alcanza una ruta interna."
+    icon: "shield"
+---
+
+## Sobre el Proyecto
+
+CyberCast es el sistema operativo completo de un proveedor de servicios de internet. Cubre el ciclo entero del negocio: catálogo de planes, clientes y servicios por zona, facturación recurrente, cobranza con convenios y comisiones, gestión de la red física (routers, redes IPv4, cajas NAP y puertos), gastos operativos, streaming, personal, soporte con plazos objetivo y un portal de consulta para el cliente final.
+
+El núcleo del proyecto no es la cantidad de módulos sino el rigor con el que están construidos. Cada decisión de diseño delicada quedó documentada y protegida por una prueba: el correlativo de recibos sale de una fila contador bloqueada porque las secuencias dejan huecos; un cargo emitido es deuda y ningún cambio de configuración lo recalcula; anular un pago revierte a la vez el saldo, la comisión y el recibo. Al momento de la última verificación, la suite corría **171 pruebas con 641 aserciones sobre PostgreSQL**, el mismo motor que producción.
+
+La integración con RouterOS está escrita siguiendo la documentación de RouterOS 7 y se ejercita contra un MikroTik simulado. El adaptador por defecto es el simulado a propósito: la verificación contra hardware real queda pendiente del laboratorio, y el sistema lo declara en pantalla en lugar de darlo por hecho.
+
+<PremiumFeatures />
+
+<TechStackBadges />

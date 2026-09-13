@@ -1,0 +1,40 @@
+---
+title: "Planyx"
+date: "2026-08-31"
+description: "Plataforma de prospección, órdenes y liquidación de comisiones para la venta de internet y televisión, en sustitución de una hoja de cálculo de control manual."
+image: "/projects/planyx/portada.webp"
+images: [
+  "/projects/planyx/portada.webp"
+]
+tags: ["Laravel 11", "React 19", "Inertia.js", "Tailwind", "TiDB"]
+demo: ""
+github: ""
+features:
+  - title: "Comisiones Congeladas"
+    description: "La regla de comisión se resuelve por tipo, modalidad y precio mínimo, y el factor aplicado queda congelado en la orden: un cambio de tarifa no reescribe lo ya vendido."
+    icon: "chart"
+  - title: "Documentos Sensibles Protegidos"
+    description: "Las imágenes de DPI y recibo viven en un bucket privado y se sirven con URL firmadas de vida corta. Nunca aparecen en exports, reportes ni en el consolidado de WhatsApp."
+    icon: "shield"
+  - title: "Roles con Corte en el Servidor"
+    description: "Al vendedor externo no se le ocultan los campos de bruto, descuento y margen en la interfaz: la respuesta del servidor simplemente no los incluye."
+    icon: "lock"
+  - title: "Plantillas de Mensaje"
+    description: "Cotizaciones, consolidados y liquidaciones se arman desde plantillas editables con variables y salen por enlace wa.me con el teléfono normalizado a formato internacional."
+    icon: "file"
+  - title: "Bitácora de Acceso"
+    description: "Toda lectura de un documento sensible y todo cambio de estado quedan registrados con usuario, entidad y fecha."
+    icon: "eye"
+---
+
+## Sobre el Proyecto
+
+Planyx sustituye la hoja de cálculo con la que se controlaba la prospección y la venta de servicios de internet Claro y televisión por DTH. El sistema acompaña al cliente desde el primer contacto hasta el pago del vendedor: captación, expediente con documentos, cotización, orden, instalación y liquidación de la comisión.
+
+La parte delicada es el dinero. El cálculo de comisión resuelve la regla vigente filtrando por tipo y modalidad, tomando las reglas activas con precio mínimo menor o igual al precio y eligiendo la de mayor precio mínimo, de modo que no queda ningún hueco en la escala. Una vez enviada la solicitud, el precio, el factor, la comisión bruta, el descuento, la neta, el pago al vendedor y el margen quedan congelados en la orden. Esa congelación es lo que permitió prescindir de fechas de vigencia en las reglas: fechar las reglas habría agregado una segunda forma de elegir factor, que es justamente lo más delicado del cálculo.
+
+El proyecto está construido sobre Laravel 11 y React 19 con Inertia, con roles y permisos de `spatie/laravel-permission`, base de datos TiDB Serverless y despliegue en Render mediante Dockerfile. Toda la arquitectura se diseñó bajo una restricción explícita: debía correr íntegramente sobre planes gratuitos.
+
+<PremiumFeatures />
+
+<TechStackBadges />
